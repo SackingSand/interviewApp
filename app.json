@@ -2,10 +2,11 @@
   "expo": {
     "name": "interviewApp",
     "slug": "interviewApp",
+    "icon": "./assets/appIcon.png",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
-  },
-  "name": "interviewApp"
+    "android": {
+      "package": "com.cyrptoindex.kanyeMobile",
+      "versionCode": 1
+    }
+  }
 }
