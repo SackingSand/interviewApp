@@ -76,7 +76,7 @@ export default Home = () => {
                 {
                     checkQuoteinFavorites(quote)? 
                         <TouchableOpacity
-                            style={ styles.reloadQuoteButton }
+                            style={ styles.alreadyInFavoriteButton }
                         >
                             <Text style={{ textAlign: 'center'}}>Already in Favorite</Text>
                         </TouchableOpacity>

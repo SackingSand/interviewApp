@@ -31,10 +31,13 @@ export default styles = StyleSheet.create({
         width: 200,
         height: 50,
         marginTop: 20,
-        // paddingTop: 30,
-        // paddingBottom: 30,
-        // paddingLeft: 40,
-        // paddingRight: 40
+    },
+    alreadyInFavoriteButton: {
+        backgroundColor: 'gray',
+        justifyContent: 'center',
+        width: 200,
+        height: 50,
+        marginTop: 20,
     },
     customQuoteInput: {
         marginBottom: 10,
