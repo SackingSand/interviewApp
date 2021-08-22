@@ -4,11 +4,9 @@ import { Text, View, Image, ScrollView } from 'react-native';
 import { useSelector } from 'react-redux';
 
 import { 
-} from '../../stores'
-import styles from '../../styles'
-import KanyePic from '../../assets/kanye.jpeg'
-import { useEffect } from 'react';
-
+} from '../../../stores'
+import styles from '../../../styles'
+import KanyePic from '../../../assets/kanye.jpeg'
 export default Favorites = () => {
   
     const { favorites } = useSelector((state) => state.KanyeReducer)
@@ -16,6 +14,8 @@ export default Favorites = () => {
     return(
         <ScrollView
             contentContainerStyle={{ flexGrow: 1 }}
+            showsVerticalScrollIndicator={false}
+            showsHorizontalScrollIndicator={false}
         >
             <View style={styles.container}>
                 <Image source={KanyePic} style={styles.homePic} />

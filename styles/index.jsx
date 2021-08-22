@@ -16,9 +16,10 @@ export default styles = StyleSheet.create({
     favoriteQuote : {
         marginTop: 10,
         fontSize: 18,
-        height: 75,
-        paddingLeft: 15,
-        paddingRight: 15
+        height: 'auto',
+        marginLeft: 15,
+        marginRight: 15,
+        borderBottomWidth: 1,
     },
     homePic : {
         marginTop: 100,
@@ -38,7 +39,8 @@ export default styles = StyleSheet.create({
     customQuoteInput: {
         marginBottom: 10,
         textAlign: 'center',
-        borderBottomWidth: 1
+        borderBottomWidth: 1,
+        width: 225
     }
   });
   

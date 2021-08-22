@@ -3,13 +3,13 @@ import { Text, View, Image, TouchableOpacity, ScrollView, TextInput } from 'reac
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import Toast from '../../components/toast'
+import Toast from '../../../toast'
 
 import {
     addToFavorite
-} from '../../stores'
-import styles from '../../styles'
-import KanyePic from '../../assets/kanye.jpeg'
+} from '../../../../stores'
+import styles from '../../../../styles'
+import KanyePic from '../../../../assets/kanye.jpeg'
 
 export default Home = () => {
 
@@ -33,6 +33,10 @@ export default Home = () => {
       }
     }))
   }
+
+  useEffect(() => {
+    setQuote('')
+  },[])
 
   return(
     <ScrollView

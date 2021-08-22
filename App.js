@@ -6,9 +6,8 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 
 import Store from './stores'
 
-import Home from './screens/Home'
-import Favorites from './screens/Favorites'
-import Custom from './screens/Custom'
+import Home from './components/screens/Home'
+import Favorites from './components/screens/Favorites'
 
 export default function App() {
   
@@ -20,7 +19,7 @@ export default function App() {
         <Tab.Navigator  
           initialRouteName="Home"
           activeColor="white"
-          inactiveColor="black"
+          inactiveColor="#aaa"
           barStyle={{}}
           shifting={true}
         >
@@ -32,17 +31,6 @@ export default function App() {
               tabBarLabel: 'Index',
               tabBarIcon: ({ color }) => (
                 <MaterialCommunityIcons name="home" color={color} size={26} />
-              ),
-            }} 
-          />
-          <Tab.Screen 
-            name="Custom" 
-            component={Custom}
-            options={{
-              tabBarColor: 'gray',
-              tabBarLabel: 'Custom',
-              tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="comment-plus-outline" color={color} size={26} />
               ),
             }} 
           />
@@ -59,7 +47,7 @@ export default function App() {
           />
         </Tab.Navigator>
       </NavigationContainer>
-      <StatusBar style="auto" />
+      <StatusBar style="auto" hidden={true} />
     </Store>
   );
 }

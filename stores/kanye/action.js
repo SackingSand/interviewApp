@@ -10,24 +10,31 @@ export const setQuote = (data) => {
 export const addToFavorite = ({quote, onSuccess, onError}) => {
     return (dispatch, getState) => {
         const { favorites } = getState().KanyeReducer
-        console.log(quote)
-        if(!quote || quote === ''){
-            if(onError){
-                return onError({ message : 'Cannot set empty quotes to favorites'})
+        try {
+            if(!quote || quote === ''){
+                throw({ message : 'Cannot set empty quotes to favorites'})
             }
-        }
-        const found = favorites.find((item) => item === quote)
-        if(!found){
-            if(onSuccess){
-                onSuccess()
+
+            const found = favorites.find((item) => item === quote)
+            if(!found){
+                if(onSuccess){
+                    onSuccess()
+                }
+                dispatch({
+                    type: 'ADD_QUOTE_FAVORITE',
+                    data : quote
+                })
+            } else {
+                if(onError){
+                    throw({ message : 'The quote is already stored in favorites'})
+                }
             }
-            dispatch({
-                type: 'ADD_QUOTE_FAVORITE',
-                data : quote
-            })
-        } else {
+
+        } catch(err) {
             if(onError){
-                onError({ message : 'The quote is already stored in favorites'})
+                onError({
+                    message : err.message ? err.message : 'Error Occured'
+                })
             }
         }
     }

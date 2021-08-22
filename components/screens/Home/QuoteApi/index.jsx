@@ -3,22 +3,26 @@ import { Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import Toast from '../../components/toast'
+import Toast from '../../../toast'
 
 import { 
     kanyeAxios, 
     setLoading,
     setQuote,
     addToFavorite
-} from '../../stores'
-import styles from '../../styles'
-import KanyePic from '../../assets/kanye.jpeg'
+} from '../../../../stores'
+import styles from '../../../../styles'
+import KanyePic from '../../../../assets/kanye.jpeg'
 
 export default Home = () => {
 
     const dispatch = useDispatch()
   
-    const { quote, loading } = useSelector((state) => state.KanyeReducer)
+    const { quote, loading, favorites } = useSelector((state) => state.KanyeReducer)
+
+    const checkQuoteinFavorites = (quote) => {
+        return favorites.find((item) => item === quote)
+    }
   
     const getQuote = () => {
       if(!loading){
@@ -69,12 +73,21 @@ export default Home = () => {
                     }
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity
-                    onPress={addToFav}
-                    style={ styles.reloadQuoteButton }
-                >
-                    <Text style={{ textAlign: 'center'}}>Add to Favorite</Text>
-                </TouchableOpacity>
+                {
+                    checkQuoteinFavorites(quote)? 
+                        <TouchableOpacity
+                            style={ styles.reloadQuoteButton }
+                        >
+                            <Text style={{ textAlign: 'center'}}>Already in Favorite</Text>
+                        </TouchableOpacity>
+                    :
+                        <TouchableOpacity
+                            onPress={addToFav}
+                            style={ styles.reloadQuoteButton }
+                        >
+                            <Text style={{ textAlign: 'center'}}>Add to Favorite</Text>
+                        </TouchableOpacity>
+                }
             </View>
         </ScrollView>
     )
